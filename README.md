@@ -159,6 +159,25 @@ php artisan essentials:pint {--force} {--backup}
 - `--force` - Overwrites the existing configuration file without asking for confirmation.
 - `--backup` - Creates a backup of the existing configuration file.
 
+#### `essentials:rector`
+
+Rector is a powerful tool for refactoring and improving your codebase. This command will publish a configuration file for Rector that includes the following:
+
+- "deadCode" - Removes dead code from your codebase.
+- "codeQuality" - Improves code quality by applying best practices.
+- "typeDeclarations" - Adds type declarations to your codebase.
+- "privatization" - Privatizes class properties and methods where possible.
+- "earlyReturn" - Enforces early return statements in your codebase.
+- "strictBooleans" - Enforces strict boolean checks in your codebase.
+
+```bash
+php artisan essentials:rector {--force} {--backup}
+```
+
+*Options:*
+- `--force` - Overwrites the existing configuration file without asking for confirmation.
+- `--backup` - Creates a backup of the existing configuration file.
+
 
 ## Configuration
 
