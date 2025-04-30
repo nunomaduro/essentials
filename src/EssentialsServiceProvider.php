@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace NunoMaduro\Essentials;
 
+use Illuminate\Console\Command;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use NunoMaduro\Essentials\Commands\EssentialsPintCommand;
-use NunoMaduro\Essentials\Commands\MakeActionCommand;
 use NunoMaduro\Essentials\Contracts\Configurable;
 
 /**
@@ -33,6 +32,17 @@ final class EssentialsServiceProvider extends BaseServiceProvider
     ];
 
     /**
+     * The list of commands.
+     *
+     * @var list<class-string<Command>>
+     */
+    private array $commandsList = [
+        Commands\ConfigureComposerCommand::class,
+        Commands\EssentialsPintCommand::class,
+        Commands\MakeActionCommand::class,
+    ];
+
+    /**
      * Bootstrap the application services.
      */
     public function boot(): void
@@ -43,10 +53,7 @@ final class EssentialsServiceProvider extends BaseServiceProvider
             ->each(fn (Configurable $configurable) => $configurable->configure());
 
         if ($this->app->runningInConsole()) {
-            $this->commands([
-                EssentialsPintCommand::class,
-                MakeActionCommand::class,
-            ]);
+            $this->commands($this->commandsList);
 
             $this->publishes([
                 __DIR__.'/../stubs' => $this->app->basePath('stubs'),

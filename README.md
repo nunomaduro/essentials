@@ -173,6 +173,35 @@ return [
 ];
 ```
 
+#### `essentials:composer`
+
+Add the following scripts to your `composer.json` file:
+
+```json
+{
+    "refactor": "rector",
+    "lint": "pint",
+    "test:refactor": "rector --dry-run",
+    "test:lint": "pint --test",
+    "test:types": "phpstan analyse --ansi",
+    "test:unit": "pest --colors=always --coverage --parallel",
+    "test": [
+        "@test:refactor",
+        "@test:lint",
+        "@test:types",
+        "@test:unit"
+    ]
+}
+```
+
+```bash
+php artisan essentials:composer {--force} {--backup}
+```
+
+*Options:*
+- `--force` - Overwrites the existing configuration file without asking for confirmation.
+- `--backup` - Creates a backup of the existing configuration file.
+
 You may also publish the stubs used by this package:
 
 ```bash
