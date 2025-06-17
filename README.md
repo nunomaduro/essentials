@@ -44,6 +44,7 @@ All features are optional and configurable in `config/essentials.php`.
 - [Fake Sleep](#-fake-sleep)
 - [Artisan Commands](#-artisan-commands)
   - [make:action](#makeaction)
+  - [make:service](#makeservice)
   - [essentials:pint](#essentialspint)
   - [essentials:rector](#essentialsrector)
 
@@ -155,6 +156,32 @@ final readonly class CreateUserAction
 ```
 
 Actions help organize business logic in dedicated classes, promoting single responsibility and cleaner controllers.
+
+#### `make:service`
+
+Quickly generates service pattern classes in your Laravel application:
+
+```bash
+php artisan make:service UserService
+```
+
+This creates a clean service class at `app/Service/UserService.php`:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Services;
+
+final readonly class UserService
+{
+
+    public function __construct(){}
+
+}
+```
+Service classes are a great way to encapsulate complex business logic that doesn’t belong in controllers or models, helping you keep your codebase modular, testable, and easier to maintain.
 
 #### `essentials:pint`
 
