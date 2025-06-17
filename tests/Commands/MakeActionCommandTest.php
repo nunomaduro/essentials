@@ -5,23 +5,6 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
-function cleanup(): void
-{
-    $actionsPath = app_path('Actions');
-
-    if (File::isDirectory($actionsPath)) {
-        File::deleteDirectory($actionsPath);
-    }
-
-    $stubsPath = base_path('stubs');
-    if (File::exists($stubsPath)) {
-        File::deleteDirectory($stubsPath);
-    }
-}
-
-beforeEach(fn () => cleanup());
-afterEach(fn () => cleanup());
-
 it('creates a new action file', function (): void {
     $actionName = 'CreateUserAction';
     $exitCode = Artisan::call('make:action', ['name' => $actionName]);
