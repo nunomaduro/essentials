@@ -207,6 +207,12 @@ return [
 ];
 ```
 
+You may publish the configuration file to customize settings:
+
+```bash
+php artisan vendor:publish --tag=essentials-config
+```
+
 You may also publish the stubs used by this package:
 
 ```bash
