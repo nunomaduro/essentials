@@ -16,7 +16,7 @@
 
 Essentials provide **better defaults** for your Laravel applications including strict models, automatically eagerly loaded relationships, immutable dates, and more! 
 
-> **Requires [PHP 8.3+](https://php.net/releases/)**, **[Laravel 11+](https://laravel.com/docs/11.x/)**.
+> **Requires [PHP 8.2+](https://php.net/releases/)**, **[Laravel 11+](https://laravel.com/docs/11.x/)**.
 
 > **Note:** This package modifies the default behavior of Laravel. **It is recommended to use it in new projects** or when you are comfortable with the changes it introduces.
 
