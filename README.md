@@ -52,6 +52,7 @@ php artisan vendor:publish --tag=essentials-config
   - [make:action](#makeaction)
   - [essentials:pint](#essentialspint)
   - [essentials:rector](#essentialsrector)
+  - [essentials:phpstan](#essentialsphpstan)
 
 ### ✅ Strict Models
 
@@ -199,6 +200,21 @@ php artisan essentials:rector {--force} {--backup}
 - `--force` - Overwrites the existing configuration file without asking for confirmation.
 - `--backup` - Creates a backup of the existing configuration file.
 
+#### `essentials:phpstan`
+
+[PHPStan](https://phpstan.org/) is a powerful static analysis tool for modern PHP. This command will publish an opinionated configuration file for PHPStan that includes the following:
+
+- Maximum analysis level (`level: max`)
+- Includes common Laravel directories: `app`, `config`, `database`, `routes`, `tests`
+- Sensible defaults for Laravel projects with [nunomaduro/larastan](https://github.com/nunomaduro/larastan)
+
+```bash
+php artisan essentials:phpstan {--force} {--backup}
+```
+
+*Options:*
+- `--force` - Overwrites the existing configuration file without asking for confirmation.
+- `--backup` - Creates a backup of the existing configuration file.
 
 ## Configuration
 

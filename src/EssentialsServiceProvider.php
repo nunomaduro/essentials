@@ -40,6 +40,7 @@ final class EssentialsServiceProvider extends BaseServiceProvider
         Commands\EssentialsRectorCommand::class,
         Commands\EssentialsPintCommand::class,
         Commands\MakeActionCommand::class,
+        Commands\EssentialsPhpstanCommand::class,
     ];
 
     /**
