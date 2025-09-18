@@ -19,7 +19,11 @@ function cleanup(): void
     }
 }
 
-beforeEach(fn () => cleanup());
+beforeEach(function (): void {
+    cleanup();
+    // Ensure the MakeAction feature is enabled for initial tests (Its configurable!)
+    config()->set('essentials.'.\NunoMaduro\Essentials\Configurables\MakeAction::class, true);
+});
 afterEach(fn () => cleanup());
 
 it('creates a new action file', function (): void {
@@ -83,4 +87,26 @@ it('uses published stub when available', function (): void {
         ->and(File::get($expectedPath))->toContain(
             '// this is user modified stub'
         );
+});
+
+it('action command is not available when disabled in config', function (): void {
+    // Test the configurable directly
+    $configurable = new \NunoMaduro\Essentials\Configurables\MakeAction();
+    
+    // Disable the MakeAction feature
+    config()->set('essentials.'.\NunoMaduro\Essentials\Configurables\MakeAction::class, false);
+    
+    // The configurable should report as disabled
+    expect($configurable->enabled())->toBeFalse();
+});
+
+it('action command is available when enabled in config', function (): void {
+    // Test the configurable directly
+    $configurable = new \NunoMaduro\Essentials\Configurables\MakeAction();
+    
+    // Enable the MakeAction feature
+    config()->set('essentials.'.\NunoMaduro\Essentials\Configurables\MakeAction::class, true);
+    
+    // The configurable should report as enabled
+    expect($configurable->enabled())->toBeTrue();
 });

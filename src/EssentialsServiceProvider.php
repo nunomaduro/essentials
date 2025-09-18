@@ -24,6 +24,7 @@ final class EssentialsServiceProvider extends BaseServiceProvider
         Configurables\FakeSleep::class,
         Configurables\ForceScheme::class,
         Configurables\ImmutableDates::class,
+        Configurables\MakeAction::class,
         Configurables\PreventStrayRequests::class,
         Configurables\ProhibitDestructiveCommands::class,
         Configurables\SetDefaultPassword::class,
@@ -39,7 +40,6 @@ final class EssentialsServiceProvider extends BaseServiceProvider
     private array $commandsList = [
         Commands\EssentialsRectorCommand::class,
         Commands\EssentialsPintCommand::class,
-        Commands\MakeActionCommand::class,
     ];
 
     /**
@@ -53,7 +53,15 @@ final class EssentialsServiceProvider extends BaseServiceProvider
             ->each(fn (Configurable $configurable) => $configurable->configure());
 
         if ($this->app->runningInConsole()) {
-            $this->commands($this->commandsList);
+            $commandsToRegister = $this->commandsList;
+            
+            // Conditionally add MakeActionCommand if enabled
+            $makeActionConfigurable = $this->app->make(Configurables\MakeAction::class);
+            if ($makeActionConfigurable->enabled()) {
+                $commandsToRegister[] = Commands\MakeActionCommand::class;
+            }
+            
+            $this->commands($commandsToRegister);
 
             $this->publishes([
                 __DIR__.'/../stubs' => $this->app->basePath('stubs'),

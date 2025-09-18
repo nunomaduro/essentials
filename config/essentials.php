@@ -155,6 +155,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Make Action Command
+    |--------------------------------------------------------------------------
+    |
+    | This option allows you to enable the make:action command for your
+    | application. When enabled, you can create action classes using
+    | the artisan command.
+    |
+    | Enabled by default.
+    |
+    */
+
+    NunoMaduro\Essentials\Configurables\MakeAction::class => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | Unguard models
     |--------------------------------------------------------------------------
     |
