@@ -19,11 +19,7 @@ function cleanup(): void
     }
 }
 
-beforeEach(function (): void {
-    cleanup();
-    // Ensure the MakeAction feature is enabled for initial tests (Its configurable!)
-    config()->set('essentials.'.NunoMaduro\Essentials\Configurables\MakeAction::class, true);
-});
+beforeEach(fn () => cleanup());
 afterEach(fn () => cleanup());
 
 it('creates a new action file', function (): void {
