@@ -110,3 +110,18 @@ it('action command is available when enabled in config', function (): void {
     // The configurable should report as enabled
     expect($configurable->enabled())->toBeTrue();
 });
+
+it('make:action command works normally when MakeAction is enabled', function (): void {
+    // This test passes because MakeAction is enabled by default in beforeEach
+    config()->set('essentials.'.NunoMaduro\Essentials\Configurables\MakeAction::class, true);
+
+    // Check if the command is registered
+    $commands = array_keys(Artisan::all());
+    expect($commands)->toContain('make:action');
+
+    // Test that the command actually works
+    $this->artisan('make:action', ['name' => 'TestEnabledAction'])
+        ->assertSuccessful();
+
+    expect(File::exists(app_path('Actions/TestEnabledAction.php')))->toBeTrue();
+});
