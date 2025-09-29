@@ -54,13 +54,13 @@ final class EssentialsServiceProvider extends BaseServiceProvider
 
         if ($this->app->runningInConsole()) {
             $commandsToRegister = $this->commandsList;
-            
+
             // Conditionally add MakeActionCommand if enabled
             $makeActionConfigurable = $this->app->make(Configurables\MakeAction::class);
             if ($makeActionConfigurable->enabled()) {
                 $commandsToRegister[] = Commands\MakeActionCommand::class;
             }
-            
+
             $this->commands($commandsToRegister);
 
             $this->publishes([
