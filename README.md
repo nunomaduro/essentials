@@ -135,10 +135,10 @@ Configures Laravel Sleep Facade to be faked.
 Quickly generates action classes in your Laravel application:
 
 ```bash
-php artisan make:action CreateUserAction
+php artisan make:action CreateUser
 ```
 
-This creates a clean action class at `app/Actions/CreateUserAction.php`:
+This creates a clean action class at `app/Actions/CreateUser.php`:
 
 ```php
 <?php
@@ -147,7 +147,7 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
-final readonly class CreateUserAction
+final readonly class CreateUser
 {
     /**
      * Execute the action.
@@ -160,6 +160,8 @@ final readonly class CreateUserAction
     }
 }
 ```
+
+Actions already live under `app/Actions`, so the class name does not need an `Action` suffix. The command uses the given name as-is (only stripping a trailing `.php` if present).
 
 Actions help organize business logic in dedicated classes, promoting single responsibility and cleaner controllers.
 
