@@ -21,6 +21,7 @@ final class EssentialsServiceProvider extends BaseServiceProvider
     private array $configurables = [
         Configurables\AggressivePrefetching::class,
         Configurables\AutomaticallyEagerLoadRelationships::class,
+        Configurables\FailOnUnknownFields::class,
         Configurables\FakeSleep::class,
         Configurables\ForceScheme::class,
         Configurables\ImmutableDates::class,
