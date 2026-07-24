@@ -57,8 +57,6 @@ final class MakeActionCommand extends GeneratorCommand
 
         return Str::of(mb_trim($name))
             ->replaceEnd('.php', '')
-            ->replaceEnd('Action', '')
-            ->append('Action')
             ->toString();
     }
 
