@@ -14,8 +14,8 @@
         "laravel/framework": "^11.44.2|^12.52.0|^13.5"
     },
     "require-dev": {
+        "laravel/pao": "^1.0.2",
         "laravel/pint": "^1.29.0",
-        "nunomaduro/pao": "^1.0.2",
         "orchestra/testbench": "^9.0|^10.9.0|^11.1",
         "pestphp/pest": "^3.8.5|^4.6.2",
         "pestphp/pest-plugin-type-coverage": "^3.6.1|^4.0.4",
