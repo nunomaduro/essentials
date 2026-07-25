@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
-function cleanup(): void
+function cleanupMakeAction(): void
 {
     $actionsPath = app_path('Actions');
 
@@ -19,8 +19,8 @@ function cleanup(): void
     }
 }
 
-beforeEach(fn () => cleanup());
-afterEach(fn () => cleanup());
+beforeEach(fn () => cleanupMakeAction());
+afterEach(fn () => cleanupMakeAction());
 
 it('creates a new action file', function (): void {
     $actionName = 'CreateUserAction';
