@@ -11,12 +11,12 @@
     ],
     "require": {
         "php": "^8.3.0",
-        "laravel/framework": "^11.44.2|^12.52.0|^13.5"
+        "laravel/framework": "^12.69.0|^13.30.0"
     },
     "require-dev": {
         "laravel/pint": "^1.29.0",
         "nunomaduro/pao": "^1.0.2",
-        "orchestra/testbench": "^9.0|^10.9.0|^11.1",
+        "orchestra/testbench": "^10.9.0|^11.1",
         "pestphp/pest": "^3.8.5|^4.6.2",
         "pestphp/pest-plugin-type-coverage": "^3.6.1|^4.0.4",
         "phpstan/phpstan": "^2.1.50",
